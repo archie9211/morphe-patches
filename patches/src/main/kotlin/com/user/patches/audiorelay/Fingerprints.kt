@@ -4,10 +4,10 @@ import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.string
 
 val premiumResponseFingerprint = Fingerprint(
-    name = "PremiumResponse toString",
+    name = "toString",
     returnType = "Ljava/lang/String;",
     parameters = emptyList(),
     filters = listOf(
-        string("PremiumResponse")
+        string("PremiumResponse(value=")
     )
 )
