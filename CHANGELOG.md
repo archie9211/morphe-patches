@@ -1,3 +1,9 @@
+## [1.0.4](https://github.com/archie9211/morphe-patches/compare/v1.0.3...v1.0.4) (2026-08-25)
+
+### 🐛 Bug Fixes
+
+* rename patches-list.json to patches.json to meet Morphe app requirements ([4175595](https://github.com/archie9211/morphe-patches/commit/4175595dc97516a68c7294f606a2e8754fb48b27))
+
 ## [1.0.3](https://github.com/archie9211/morphe-patches/compare/v1.0.2...v1.0.3) (2026-08-25)
 
 ### 🐛 Bug Fixes
