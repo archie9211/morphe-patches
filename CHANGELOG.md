@@ -1,3 +1,9 @@
+## [1.0.6-dev.1](https://github.com/archie9211/morphe-patches/compare/v1.0.5...v1.0.6-dev.1) (2026-08-25)
+
+### 🐛 Bug Fixes
+
+* correct fingerprint method name from 'PremiumResponse toString' to 'toString' ([4d41b97](https://github.com/archie9211/morphe-patches/commit/4d41b973842461ed156a62504d4f414afe720ce8))
+
 ## [1.0.5](https://github.com/archie9211/morphe-patches/compare/v1.0.4...v1.0.5) (2026-08-25)
 
 ### 🐛 Bug Fixes
