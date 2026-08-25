@@ -1,3 +1,9 @@
+## [1.0.2-dev.1](https://github.com/archie9211/morphe-patches/compare/v1.0.1...v1.0.2-dev.1) (2026-08-25)
+
+### 🐛 Bug Fixes
+
+* add issues and PR permissions for semantic-release and disable fail comments ([f4d4729](https://github.com/archie9211/morphe-patches/commit/f4d4729068ae7b419b5d4b0882825285af3a8a9a))
+
 ## [1.0.1](https://github.com/archie9211/morphe-patches/compare/v1.0.0...v1.0.1) (2026-08-25)
 
 ### 🐛 Bug Fixes
