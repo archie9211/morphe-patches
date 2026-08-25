@@ -8,6 +8,6 @@ val premiumResponseFingerprint = Fingerprint(
     returnType = "Ljava/lang/String;",
     parameters = emptyList(),
     filters = listOf(
-        string("PremiumResponse(value=")
+        string("PremiumResponse")
     )
 )
