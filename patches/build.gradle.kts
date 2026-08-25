@@ -1,7 +1,6 @@
-group = "app.template"
+group = "com.user.patches"
 
 patches {
-    // TODO: Update this section with your project details.
     about {
         name = "UserXYZ Patches"
         description = "Patches for apps I like"
