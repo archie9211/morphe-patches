@@ -1,4 +1,4 @@
-## [1.0.1-dev.1](https://github.com/archie9211/morphe-patches/compare/v1.0.0...v1.0.1-dev.1) (2026-08-25)
+## [1.0.1](https://github.com/archie9211/morphe-patches/compare/v1.0.0...v1.0.1) (2026-08-25)
 
 ### 🐛 Bug Fixes
 
