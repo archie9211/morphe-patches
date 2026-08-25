@@ -1,7 +1,7 @@
 package com.user.patches.audiorelay
 
-import app.morphe.patcher.fingerprint.Fingerprint
-import app.morphe.patcher.fingerprint.filter.string
+import app.morphe.patcher.Fingerprint
+import app.morphe.patcher.string
 
 val premiumResponseFingerprint = Fingerprint(
     name = "PremiumResponse toString",

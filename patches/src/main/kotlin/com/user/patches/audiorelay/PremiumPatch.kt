@@ -3,7 +3,7 @@ package com.user.patches.audiorelay
 import app.morphe.patcher.patch.bytecodePatch
 import app.morphe.patcher.Compatibility
 import app.morphe.patcher.AppTarget
-import app.morphe.patcher.util.method.replaceInstructions
+import app.morphe.patcher.extensions.InstructionExtensions.replaceInstructions
 
 val audioRelayCompatibility = Compatibility(
     name = "AudioRelay",
