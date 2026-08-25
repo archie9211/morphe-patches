@@ -2,10 +2,10 @@ group = "com.user.patches"
 
 patches {
     about {
-        name = "UserXYZ Patches"
-        description = "Patches for apps I like"
-        source = "git@github.com:UserXYZ/morphe-patches.git"
-        author = "Awesome dev"
+        name = "Archie's Patches"
+        description = "Morphe Patches by Archie"
+        source = "https://github.com/archie9211/morphe-patches"
+        author = "archie9211"
         contact = "na"
         website = "na"
         license = "GPLv3"
