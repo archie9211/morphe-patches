@@ -1,9 +1,10 @@
 package com.user.patches.audiorelay
 
 import app.morphe.patcher.patch.bytecodePatch
-import app.morphe.patcher.Compatibility
-import app.morphe.patcher.AppTarget
-import app.morphe.patcher.extensions.InstructionExtensions.replaceInstructions
+import app.morphe.patcher.patch.Compatibility
+import app.morphe.patcher.patch.AppTarget
+import app.morphe.patcher.extensions.InstructionExtensions.removeInstructions
+import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 
 val audioRelayCompatibility = Compatibility(
     name = "AudioRelay",
@@ -31,7 +32,8 @@ val premiumPatch = bytecodePatch(
         }
 
         // 3. Replace the method instructions to always return true (0x1)
-        isPremiumMethod.replaceInstructions(
+        isPremiumMethod.removeInstructions(0)
+        isPremiumMethod.addInstructions(0, 
             """
                 const/4 v0, 0x1
                 return v0
