@@ -46,8 +46,8 @@
       "@semantic-release/exec",
       {
         "prepareCmd": "./gradlew generatePatchesList \
-          && jq '.version=\"${nextRelease.version}\"' patches-list.json > patches-list.json.tmp && mv patches-list.json.tmp patches-list.json \
-          && python3 .github/scripts/generate_patches_readme.py $GITHUB_REPOSITORY $GITHUB_REF_NAME patches-list.json README.md"
+          && jq '.version=\"${nextRelease.version}\"' patches.json > patches.json.tmp && mv patches.json.tmp patches.json \
+          && python3 .github/scripts/generate_patches_readme.py $GITHUB_REPOSITORY $GITHUB_REF_NAME patches.json README.md"
       }
     ],
     [
@@ -57,7 +57,7 @@
           "CHANGELOG.md",
           "gradle.properties",
           "patches-bundle.json",
-          "patches-list.json",
+          "patches.json",
           "README.md"
         ],
         "message": "chore: Release v${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
@@ -74,7 +74,7 @@
             "path": "patches-bundle.json"
           },
           {
-            "path": "patches-list.json"
+            "path": "patches.json"
           }
         ],
         "successCommentCondition": false,

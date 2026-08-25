@@ -38,7 +38,7 @@ fun main() {
 
 @Suppress("DEPRECATION")
 private fun generatePatchList(version: String, patches: Set<Patch<*>>) {
-    val listJson = File("../patches-list.json")
+    val listJson = File("../patches.json")
 
     val patchesMap = patches.sortedBy { it.name }.map { patch ->
         JsonPatch(
@@ -101,7 +101,7 @@ private fun generatePatchList(version: String, patches: Set<Patch<*>>) {
     listJson.writeText(gson.toJson(jsonObject))
 }
 
-/** JSON representation of a patch entry in patches-list.json. */
+/** JSON representation of a patch entry in patches.json. */
 @Suppress("unused")
 private class JsonPatch(
     val name: String? = null,
