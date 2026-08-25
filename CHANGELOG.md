@@ -1,3 +1,9 @@
+## [1.0.1](https://github.com/archie9211/morphe-patches/compare/v1.0.0...v1.0.1) (2026-08-25)
+
+### 🐛 Bug Fixes
+
+* include patches-bundle.json and patches-list.json in github release assets ([865b75f](https://github.com/archie9211/morphe-patches/commit/865b75f8b48a4acade4905d7cc565d12ac3d4a16))
+
 ## 1.0.0 (2026-08-25)
 
 ### 🐛 Bug Fixes
