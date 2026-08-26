@@ -15,9 +15,9 @@ Click here to add these patches to Morphe: https://morphe.software/add-source?gi
 ## 🩹 Patches list
 
 <!-- PATCHES_START EXPANDED -->
-> **[v1.2.1](https://github.com/archie9211/morphe-patches/releases/tag/v1.2.1)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;3 patches total
+> **[v1.3.0](https://github.com/archie9211/morphe-patches/releases/tag/v1.3.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;4 patches total
 <details open>
-<summary>📦 Medium&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
+<summary>📦 Medium&nbsp;&nbsp;•&nbsp;&nbsp;3 patches</summary>
 <br>
 
 **🎯 Supported versions:**
@@ -27,6 +27,7 @@ Click here to add these patches to Morphe: https://morphe.software/add-source?gi
 
 | 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
 |----------|----------------|-----------|
+| [Bypass Play Store Check](#bypass-play-store-check) | Bypasses PairIP signature and license checks (Play Store version error). |  |
 | [Freedium paywall bypass](#freedium-paywall-bypass) | Opens a webview to Freedium for locked articles. | • Freedium Mirror URL |
 | [Hide Premium Banners](#hide-premium-banners) | Hides 'Get Premium' banners by mocking the MembershipTier to MEMBER. |  |
 

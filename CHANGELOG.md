@@ -1,3 +1,9 @@
+## [1.3.0](https://github.com/archie9211/morphe-patches/compare/v1.2.1...v1.3.0) (2026-08-26)
+
+### ✨ New Features
+
+* bypass PairIP signature and license checks ([a2bedb3](https://github.com/archie9211/morphe-patches/commit/a2bedb31fd0f2fbad422106508863fa2ebac2fa2))
+
 ## [1.2.1](https://github.com/archie9211/morphe-patches/compare/v1.2.0...v1.2.1) (2026-08-26)
 
 ### 🐛 Bug Fixes
