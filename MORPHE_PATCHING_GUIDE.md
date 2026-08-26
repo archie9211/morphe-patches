@@ -1015,3 +1015,14 @@ Morphe Patcher is a powerful library to patch Android applications, offering a r
 develop patches that outlive app updates. Patches make up Morphe; without you, the community of
 patch developers, Morphe would not be what it is today. We hope that this documentation has been
 helpful to you and are excited to see what you will create with Morphe Patcher.
+
+### ⚠️ Important Note on Option Types and Morphe Manager Compatibility
+
+When using options like `stringOption`, the generated `patches.json` file records the data type of each option. By default, Kotlin's `KType.toString()` evaluates to `kotlin.String` (or `kotlin.Boolean`, etc.). 
+
+**Crucial Learning:** The Morphe Manager app requires options to be defined with standard Java type names (e.g., `String`, `Boolean`) instead of `kotlin.*`. If your `PatchListGenerator.kt` or `patches.json` contains `type: "kotlin.String"`, the Morphe Manager will throw an internal parsing error when loading the options array, resulting in a **"metadata is N/A or not found"** error. This happens despite successfully downloading the `.mpp` patch files. 
+
+To fix this, ensure that your patch list generator scripts sanitize the type output, like so:
+```kotlin
+type = option.type.toString().replace("kotlin.", "")
+```
