@@ -1,3 +1,13 @@
+## [1.2.0](https://github.com/archie9211/morphe-patches/compare/v1.1.2...v1.2.0) (2026-08-26)
+
+### 🐛 Bug Fixes
+
+* **medium:** address unlock button issue, hide premium banners, and hide freedium header ([77844bc](https://github.com/archie9211/morphe-patches/commit/77844bc708307b11f0ac9802b3238fdae83ba719))
+
+### ✨ New Features
+
+* Add Freedium mirror patch for Medium app ([050ec75](https://github.com/archie9211/morphe-patches/commit/050ec750e45a162a31026e24eec267fd0252edd7))
+
 ## [1.1.0](https://github.com/archie9211/morphe-patches/compare/v1.0.6...v1.1.0) (2026-08-26)
 
 ### ✨ New Features
