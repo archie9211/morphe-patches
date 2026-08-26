@@ -1,7 +1,7 @@
 {
-  "created_at": "2026-08-26T21:00:36",
-  "description": "## [1.2.0](https://github.com/archie9211/morphe-patches/compare/v1.1.2...v1.2.0) (2026-08-26)\n\n### 🐛 Bug Fixes\n\n* **medium:** address unlock button issue, hide premium banners, and hide freedium header ([77844bc](https://github.com/archie9211/morphe-patches/commit/77844bc708307b11f0ac9802b3238fdae83ba719))\n\n### ✨ New Features\n\n* Add Freedium mirror patch for Medium app ([050ec75](https://github.com/archie9211/morphe-patches/commit/050ec750e45a162a31026e24eec267fd0252edd7))",
-  "download_url": "https://github.com/archie9211/morphe-patches/releases/download/v1.2.0/patches-1.2.0.mpp",
+  "created_at": "2026-08-26T21:14:26",
+  "description": "## [1.2.1](https://github.com/archie9211/morphe-patches/compare/v1.2.0...v1.2.1) (2026-08-26)\n\n### 🐛 Bug Fixes\n\n* ensure patch options use String type instead of kotlin.String for Morphe Manager compatibility ([7d2d50c](https://github.com/archie9211/morphe-patches/commit/7d2d50c4ad837d37bbecd3c25535fc568bafe30f))",
+  "download_url": "https://github.com/archie9211/morphe-patches/releases/download/v1.2.1/patches-1.2.1.mpp",
   "signature_download_url": "",
-  "version": "1.2.0"
+  "version": "1.2.1"
 }

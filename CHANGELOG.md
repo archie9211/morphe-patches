@@ -1,3 +1,9 @@
+## [1.2.1](https://github.com/archie9211/morphe-patches/compare/v1.2.0...v1.2.1) (2026-08-26)
+
+### 🐛 Bug Fixes
+
+* ensure patch options use String type instead of kotlin.String for Morphe Manager compatibility ([7d2d50c](https://github.com/archie9211/morphe-patches/commit/7d2d50c4ad837d37bbecd3c25535fc568bafe30f))
+
 ## [1.2.0](https://github.com/archie9211/morphe-patches/compare/v1.1.2...v1.2.0) (2026-08-26)
 
 ### 🐛 Bug Fixes
