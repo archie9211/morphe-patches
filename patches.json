@@ -1,7 +1,43 @@
 {
   "NOTE": "Do NOT manually edit this file. This file is automatically updated when semantic release (release.yml) runs. Manually editing this file can break your releases and break third party tools that use this file.",
-  "version": "1.0.6",
+  "version": "1.1.0",
   "patches": [
+    {
+      "name": "Freedium paywall bypass",
+      "description": "Opens a webview to Freedium for locked articles.",
+      "default": true,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.medium.reader",
+          "name": "Medium",
+          "description": null,
+          "apkFileType": null,
+          "appIconColor": null,
+          "signatures": null,
+          "targets": [
+            {
+              "version": "4.5.1784910415",
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": [
+        {
+          "key": "freedium_mirror_url",
+          "title": null,
+          "description": null,
+          "required": false,
+          "type": "kotlin.String",
+          "default": null,
+          "values": null
+        }
+      ]
+    },
     {
       "name": "Unlock Premium",
       "description": "Unlocks premium features by overriding the PremiumResponse.",
