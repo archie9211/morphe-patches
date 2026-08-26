@@ -32,7 +32,12 @@ val freediumPatch = bytecodePatch(
     default = true
 ) {
     compatibleWith(mediumCompatibility)
-    val mirrorUrlOption by stringOption(key = "freedium_mirror_url")
+    val mirrorUrlOption by stringOption(
+        key = "freedium_mirror_url",
+        title = "Freedium Mirror URL",
+        description = "URL of the Freedium mirror to use",
+        default = "https://freedium-mirror.cfd/"
+    )
 
     extendWith("extensions/extension.mpe")
 
@@ -45,5 +50,16 @@ val freediumPatch = bytecodePatch(
             const-string v0, "$mirrorUrlOption"
             invoke-static { p1, v0 }, Lcom/user/patches/medium/FreediumInterceptor;->checkAndRedirect(Ljava/lang/Object;Ljava/lang/String;)V
         """)
+
+        val webViewClientFingerprint = Fingerprint(
+            name = "onPageFinished",
+            returnType = "V",
+            parameters = listOf("Landroid/webkit/WebView;", "Ljava/lang/String;")
+        )
+        webViewClientFingerprint.matchAllOrNull()?.forEach { match ->
+            match.method.addInstructions(0, """
+                invoke-static { p1, p2 }, Lcom/user/patches/medium/FreediumInterceptor;->injectCSS(Landroid/webkit/WebView;Ljava/lang/String;)V
+            """)
+        }
     }
 }

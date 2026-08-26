@@ -40,16 +40,13 @@ object FreediumInterceptor {
             val getFullPostDataMethod = post.javaClass.getMethod("getFullPostData")
             val fullPostData = getFullPostDataMethod.invoke(post) ?: return
             
-            val getContentMethod = fullPostData.javaClass.getMethod("getContent")
-            val content = getContentMethod.invoke(fullPostData) ?: return
+            val getPostMetaDataMethod = fullPostData.javaClass.getMethod("getPostMetaData")
+            val postMetaData = getPostMetaDataMethod.invoke(fullPostData) ?: return
             
-            val isLockedMethod = content.javaClass.getMethod("isLockedPreviewOnly")
-            val isLocked = isLockedMethod.invoke(content) as Boolean
+            val isLockedMethod = postMetaData.javaClass.getMethod("isLocked")
+            val isLocked = isLockedMethod.invoke(postMetaData) as? Boolean ?: false
             
             if (isLocked) {
-                val postMetaDataMethod = fullPostData.javaClass.getMethod("getPostMetaData")
-                val postMetaData = postMetaDataMethod.invoke(fullPostData) ?: return
-                
                 val mediumUrlMethod = postMetaData.javaClass.getMethod("getMediumUrl")
                 val mediumUrl = mediumUrlMethod.invoke(postMetaData) as String
                 
@@ -61,6 +58,20 @@ object FreediumInterceptor {
                 val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
                 intent.setClassName(activity, "com.medium.android.donkey.read.web.ExternalWebViewActivity")
                 activity.startActivity(intent)
+            }
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+    }
+
+    @JvmStatic
+    fun injectCSS(webView: android.webkit.WebView?, url: String?) {
+        if (webView == null || url == null) return
+        try {
+            if (url.contains("freedium")) {
+                val css = "header, nav, .freedium-header, [class*='navbar'] { display: none !important; }"
+                val js = "var style = document.createElement('style'); style.innerHTML = '$css'; document.head.appendChild(style);"
+                webView.evaluateJavascript(js, null)
             }
         } catch (e: Exception) {
             e.printStackTrace()
