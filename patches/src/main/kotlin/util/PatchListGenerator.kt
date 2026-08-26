@@ -74,7 +74,7 @@ private fun generatePatchList(version: String, patches: Set<Patch<*>>) {
                     title = option.title,
                     description = option.description,
                     required = option.required,
-                    type = option.type.toString(),
+                    type = option.type.toString().replace("kotlin.String", "String"),
                     default = option.default,
                     values = option.values,
                 )
