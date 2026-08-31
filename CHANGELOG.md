@@ -1,3 +1,9 @@
+## [1.3.5](https://github.com/archie9211/morphe-patches/compare/v1.3.4...v1.3.5) (2026-08-31)
+
+### 🐛 Bug Fixes
+
+* mock PairIP LicenseCheckState to LOCAL_CHECK_OK to prevent native overlay ([09791a6](https://github.com/archie9211/morphe-patches/commit/09791a6b90dcf7aff93d21334a60772e9b0022de))
+
 ## [1.3.4](https://github.com/archie9211/morphe-patches/compare/v1.3.3...v1.3.4) (2026-08-31)
 
 ### 🐛 Bug Fixes
