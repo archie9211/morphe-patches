@@ -43,12 +43,15 @@ val freediumPatch = bytecodePatch(
 
     execute {
         donkeyAppFingerprint.method.addInstructions(0, """
-            invoke-static { p0 }, Lcom/user/patches/medium/ActivityTracker;->register(Landroid/app/Application;)V
+            move-object/from16 v0, p0
+            invoke-static { v0 }, Lcom/user/patches/medium/ActivityTracker;->register(Landroid/app/Application;)V
         """)
 
         processPostDataFingerprint.method.addInstructions(0, """
             const-string v0, "$mirrorUrlOption"
-            invoke-static { p1, v0 }, Lcom/user/patches/medium/FreediumInterceptor;->checkAndRedirect(Ljava/lang/Object;Ljava/lang/String;)V
+            sput-object v0, Lcom/user/patches/medium/FreediumInterceptor;->mirrorUrl:Ljava/lang/String;
+            move-object/from16 v0, p1
+            invoke-static { v0 }, Lcom/user/patches/medium/FreediumInterceptor;->checkAndRedirect(Ljava/lang/Object;)V
         """)
 
         val webViewClientFingerprint = Fingerprint(
@@ -58,7 +61,9 @@ val freediumPatch = bytecodePatch(
         )
         webViewClientFingerprint.matchAllOrNull()?.forEach { match ->
             match.method.addInstructions(0, """
-                invoke-static { p1, p2 }, Lcom/user/patches/medium/FreediumInterceptor;->injectCSS(Landroid/webkit/WebView;Ljava/lang/String;)V
+                move-object/from16 v0, p1
+                move-object/from16 v1, p2
+                invoke-static { v0, v1 }, Lcom/user/patches/medium/FreediumInterceptor;->injectCSS(Landroid/webkit/WebView;Ljava/lang/String;)V
             """)
         }
     }

@@ -31,7 +31,10 @@ object ActivityTracker : Application.ActivityLifecycleCallbacks {
 
 object FreediumInterceptor {
     @JvmStatic
-    fun checkAndRedirect(data: Any?, mirrorUrl: String) {
+    var mirrorUrl: String = "https://freedium-mirror.cfd/"
+
+    @JvmStatic
+    fun checkAndRedirect(data: Any?) {
         if (data == null) return
         try {
             val getPostMethod = data.javaClass.getMethod("getPost")
