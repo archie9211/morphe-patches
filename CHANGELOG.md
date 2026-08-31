@@ -1,3 +1,9 @@
+## [1.3.4](https://github.com/archie9211/morphe-patches/compare/v1.3.3...v1.3.4) (2026-08-31)
+
+### 🐛 Bug Fixes
+
+* use move-object/from16 in FreediumPatch to avoid assembler crash on high registers ([97055fd](https://github.com/archie9211/morphe-patches/commit/97055fd2e8fc5a903ebf53bd2bb364826546adf1))
+
 ## [1.3.3](https://github.com/archie9211/morphe-patches/compare/v1.3.2...v1.3.3) (2026-08-31)
 
 ### 🐛 Bug Fixes
