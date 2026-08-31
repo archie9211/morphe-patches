@@ -1,3 +1,9 @@
+## [1.3.3](https://github.com/archie9211/morphe-patches/compare/v1.3.2...v1.3.3) (2026-08-31)
+
+### 🐛 Bug Fixes
+
+* use move-object/from16 to avoid dalvik assembler crash on high registers ([0e64ae7](https://github.com/archie9211/morphe-patches/commit/0e64ae7c508cd578c5a9dfe5e5ce3657e89adc37))
+
 ## [1.3.2](https://github.com/archie9211/morphe-patches/compare/v1.3.1...v1.3.2) (2026-08-31)
 
 ### 🐛 Bug Fixes
