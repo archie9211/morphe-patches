@@ -26,7 +26,7 @@ val pairIpPatch = bytecodePatch(
             }
         }
 
-        // Bypass LicenseClient.checkLicense
+        // Bypass LicenseClient.checkLicense and mock the check state
         val checkLicenseFingerprint = Fingerprint(
             name = "checkLicense",
             returnType = "V",
@@ -35,7 +35,11 @@ val pairIpPatch = bytecodePatch(
         checkLicenseFingerprint.matchAllOrNull()?.forEach { match ->
             if (match.classDef.type == "Lcom/pairip/licensecheck/LicenseClient;") {
                 match.method.removeInstructions(0)
-                match.method.addInstructions(0, "return-void")
+                match.method.addInstructions(0, """
+                    sget-object v0, Lcom/pairip/licensecheck/LicenseClient${'$'}LicenseCheckState;->LOCAL_CHECK_OK:Lcom/pairip/licensecheck/LicenseClient${'$'}LicenseCheckState;
+                    sput-object v0, Lcom/pairip/licensecheck/LicenseClient;->licenseCheckState:Lcom/pairip/licensecheck/LicenseClient${'$'}LicenseCheckState;
+                    return-void
+                """)
             }
         }
 
