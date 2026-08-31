@@ -1,8 +1,9 @@
 package com.user.patches.medium
 
-import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
-import app.morphe.patcher.extensions.InstructionExtensions.removeInstructions
 import app.morphe.patcher.patch.bytecodePatch
+import app.morphe.patcher.Fingerprint
+import app.morphe.patcher.extensions.InstructionExtensions.removeInstructions
+import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 
 val pairIpPatch = bytecodePatch(
     name = "Bypass Play Store Check",
@@ -13,27 +14,46 @@ val pairIpPatch = bytecodePatch(
 
     execute {
         // Bypass SignatureCheck.verifyIntegrity
-        try {
-            val signatureCheckClass = classDefBy("Lcom/pairip/SignatureCheck;")
-            val mutableSigClass = mutableClassDefBy(signatureCheckClass)
-            
-            val verifyMethod = mutableSigClass.methods.first { it.name == "verifyIntegrity" }
-            verifyMethod.removeInstructions(0)
-            verifyMethod.addInstructions(0, "return-void")
-        } catch (e: Exception) {
-            // Ignore if class not found
+        val verifyIntegrityFingerprint = Fingerprint(
+            name = "verifyIntegrity",
+            returnType = "V",
+            parameters = listOf("Landroid/content/Context;")
+        )
+        verifyIntegrityFingerprint.matchAllOrNull()?.forEach { match ->
+            if (match.classDef.type == "Lcom/pairip/SignatureCheck;") {
+                match.method.removeInstructions(0)
+                match.method.addInstructions(0, "return-void")
+            }
         }
 
         // Bypass LicenseClient.checkLicense
-        try {
-            val licenseClientClass = classDefBy("Lcom/pairip/licensecheck/LicenseClient;")
-            val mutableLicClass = mutableClassDefBy(licenseClientClass)
-            
-            val checkLicenseMethod = mutableLicClass.methods.first { it.name == "checkLicense" }
-            checkLicenseMethod.removeInstructions(0)
-            checkLicenseMethod.addInstructions(0, "return-void")
-        } catch (e: Exception) {
-            // Ignore if class not found
+        val checkLicenseFingerprint = Fingerprint(
+            name = "checkLicense",
+            returnType = "V",
+            parameters = listOf("Landroid/content/Context;")
+        )
+        checkLicenseFingerprint.matchAllOrNull()?.forEach { match ->
+            if (match.classDef.type == "Lcom/pairip/licensecheck/LicenseClient;") {
+                match.method.removeInstructions(0)
+                match.method.addInstructions(0, "return-void")
+            }
+        }
+
+        // Disable LicenseActivity entirely by finishing immediately in onStart
+        val onStartFingerprint = Fingerprint(
+            name = "onStart",
+            returnType = "V",
+            parameters = listOf()
+        )
+        onStartFingerprint.matchAllOrNull()?.forEach { match ->
+            if (match.classDef.type == "Lcom/pairip/licensecheck/LicenseActivity;") {
+                match.method.removeInstructions(0)
+                match.method.addInstructions(0, """
+                    invoke-super {p0}, Landroid/app/Activity;->onStart()V
+                    invoke-virtual {p0}, Landroid/app/Activity;->finish()V
+                    return-void
+                """)
+            }
         }
     }
 }
