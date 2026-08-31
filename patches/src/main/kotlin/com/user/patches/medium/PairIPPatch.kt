@@ -49,8 +49,9 @@ val pairIpPatch = bytecodePatch(
             if (match.classDef.type == "Lcom/pairip/licensecheck/LicenseActivity;") {
                 match.method.removeInstructions(0)
                 match.method.addInstructions(0, """
-                    invoke-super/range {p0 .. p0}, Landroid/app/Activity;->onStart()V
-                    invoke-virtual/range {p0 .. p0}, Landroid/app/Activity;->finish()V
+                    move-object/from16 v0, p0
+                    invoke-super {v0}, Landroid/app/Activity;->onStart()V
+                    invoke-virtual {v0}, Landroid/app/Activity;->finish()V
                     return-void
                 """)
             }
