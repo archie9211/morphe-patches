@@ -1,3 +1,9 @@
+## [1.3.1](https://github.com/archie9211/morphe-patches/compare/v1.3.0...v1.3.1) (2026-08-31)
+
+### 🐛 Bug Fixes
+
+* bypass play store check using fingerprint and onStart ([e997797](https://github.com/archie9211/morphe-patches/commit/e997797aa5bd3207c3b4d63b821ec832549dffe7))
+
 ## [1.3.0](https://github.com/archie9211/morphe-patches/compare/v1.2.1...v1.3.0) (2026-08-26)
 
 ### ✨ New Features
