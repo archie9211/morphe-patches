@@ -1,3 +1,9 @@
+## [1.3.2](https://github.com/archie9211/morphe-patches/compare/v1.3.1...v1.3.2) (2026-08-31)
+
+### 🐛 Bug Fixes
+
+* use invoke-super/range to avoid invalid register v29 ([233ce09](https://github.com/archie9211/morphe-patches/commit/233ce09c1baa166dfb9c59edb992a9238bf45489))
+
 ## [1.3.1](https://github.com/archie9211/morphe-patches/compare/v1.3.0...v1.3.1) (2026-08-31)
 
 ### 🐛 Bug Fixes
